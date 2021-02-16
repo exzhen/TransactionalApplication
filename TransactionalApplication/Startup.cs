@@ -35,7 +35,7 @@ namespace TransactionalApplication
             {
                 app.UseDeveloperExceptionPage();
             }
-
+  
             app.UseHttpsRedirection();
 
             app.UseRouting();
