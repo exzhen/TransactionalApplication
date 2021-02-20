@@ -4,19 +4,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TransactionalApplication.Models
+namespace AccountService.Models
 {
-    public class AccountContext : DbContext
+    public class AccountServiceContext : DbContext
     {
-        public AccountContext() : base()
+        public AccountServiceContext() : base()
         {
 
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=TransactionalApplicationDB;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=AccountServiceDB;Trusted_Connection=True;");
         }
+
+
 
         public DbSet<User> Users { get; set; }
         public DbSet<TransactionHistory> TransactionHistory { get; set; }
