@@ -13,6 +13,13 @@ namespace OrderService.Controllers
     [Route("[controller]")]
     public class OrderController : ControllerBase
     {
+        /// <summary>
+        /// Create an order
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="userId"></param>
+        /// <param name="amount"></param>
+        /// <returns></returns>
         [HttpPost("CreateOrder")]
         public async Task<ActionResult> CreateOrder(string name, int userId, int amount)
         {
@@ -32,6 +39,11 @@ namespace OrderService.Controllers
             }
         }
 
+        /// <summary>
+        /// View order
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <returns></returns>
         [HttpGet("ReadOrder")]
         public async Task<ActionResult> ReadOrder(int orderId)
         {
@@ -55,6 +67,12 @@ namespace OrderService.Controllers
             }
         }
 
+        /// <summary>
+        /// Update the state of order
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <param name="state"></param>
+        /// <returns></returns>
         [HttpPost("UpdateOrder")]
         public async Task<ActionResult> UpdateOrder(int orderId, string state)
         {

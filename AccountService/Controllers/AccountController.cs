@@ -27,6 +27,13 @@ namespace AccountService.Controllers
             return "Done";
         }
 
+        /// <summary>
+        /// Create new user
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="password"></param>
+        /// <param name="totalAmount"></param>
+        /// <returns></returns>
         [HttpPost("CreateUser")]
         public async Task<ActionResult> CreateUser(string name, string password, int totalAmount)
         {
@@ -46,6 +53,12 @@ namespace AccountService.Controllers
             }
         }
 
+        /// <summary>
+        /// View user
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         [HttpGet("ReadUser")]
         public async Task<ActionResult> ReadUser(string name, string password)
         {
@@ -69,6 +82,13 @@ namespace AccountService.Controllers
             }
         }
 
+        /// <summary>
+        /// Add amount for an user
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="amount"></param>
+        /// <param name="tranName"></param>
+        /// <returns></returns>
         [HttpPost("AddAmount")]
         public async Task<ActionResult> AddAmount(int userId, int amount, string tranName)
         {
@@ -102,6 +122,13 @@ namespace AccountService.Controllers
             }
         }
 
+        /// <summary>
+        /// Deduct amount for an user
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="amount"></param>
+        /// <param name="tranName"></param>
+        /// <returns></returns>
         [HttpPost("DeductAmount")]
         public async Task<ActionResult> DeductAmount(int userId, int amount, string tranName)
         {
