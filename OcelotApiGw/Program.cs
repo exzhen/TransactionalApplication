@@ -23,8 +23,16 @@ namespace OcelotApiGw
                     webBuilder.UseStartup<Startup>();
 
                     var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-                    webBuilder.ConfigureAppConfiguration(config =>
-                    config.AddJsonFile($"ocelot.{env}.json"));
+                    if (env == "" || env== null)
+                    {
+                        webBuilder.ConfigureAppConfiguration(config =>
+                        config.AddJsonFile($"ocelot.json"));
+                    }
+                    else
+                    {
+                        webBuilder.ConfigureAppConfiguration(config =>
+                        config.AddJsonFile($"ocelot.{env}.json"));
+                    }
                 })
             .ConfigureLogging(logging => logging.AddConsole());
     }
